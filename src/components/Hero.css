@@ -1,0 +1,827 @@
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  padding: 130px 8% 80px;
+
+  /* Transparent so NightSky remains visible */
+  background: transparent;
+
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* ========================================
+   BACKGROUND GRID
+======================================== */
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(56, 189, 248, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(56, 189, 248, 0.02) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.65),
+      transparent 85%
+    );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   BLUE BACKGROUND GLOWS
+======================================== */
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(110px);
+
+  pointer-events: none;
+
+  animation:
+    glowMove 8s ease-in-out infinite alternate;
+}
+
+.hero-glow-one {
+  width: 400px;
+  height: 400px;
+
+  top: 15%;
+  right: -150px;
+
+  background:
+    rgba(37, 99, 235, 0.14);
+}
+
+.hero-glow-two {
+  width: 280px;
+  height: 280px;
+
+  bottom: -100px;
+  left: 10%;
+
+  background:
+    rgba(14, 165, 233, 0.08);
+
+  animation-delay: 2s;
+}
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+
+  max-width: 1050px;
+}
+
+/* ========================================
+   AVAILABLE STATUS
+======================================== */
+
+.hero-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 30px;
+
+  padding: 8px 15px;
+
+  color: #cbd5e1;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  background:
+    rgba(15, 23, 42, 0.45);
+
+  border:
+    1px solid rgba(125, 211, 252, 0.15);
+
+  border-radius: 100px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.8s ease forwards;
+}
+
+/* STATUS DOT */
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  background: #38bdf8;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.9);
+
+  animation:
+    pulse 2s infinite;
+}
+
+/* ========================================
+   INTRO
+======================================== */
+
+.hero-intro {
+  margin-bottom: 12px;
+
+  color: #38bdf8;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 20px rgba(56, 189, 248, 0.3);
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.8s ease 0.15s forwards;
+}
+
+/* ========================================
+   NAME
+======================================== */
+
+.hero-name {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(4.5rem, 10vw, 9rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -7px;
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.9s ease 0.3s forwards;
+}
+
+.hero-name span {
+  color: #38bdf8;
+
+  text-shadow:
+    0 0 25px rgba(56, 189, 248, 0.25),
+    0 0 60px rgba(37, 99, 235, 0.15);
+}
+
+/* ========================================
+   ANIMATED ROLE
+======================================== */
+
+.hero-role-container {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  min-height: 75px;
+
+  margin-top: 25px;
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.9s ease 0.45s forwards;
+}
+
+.role-prefix {
+  color: #64748b;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.animated-role {
+  color: #60a5fa;
+
+  font-size:
+    clamp(1.8rem, 4vw, 3.5rem);
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 0 25px rgba(59, 130, 246, 0.2);
+
+  animation:
+    roleChange 0.6s ease;
+}
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.hero-description {
+  max-width: 650px;
+
+  margin-top: 25px;
+
+  color: #94a3b8;
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.9s ease 0.6s forwards;
+}
+
+/* ========================================
+   HERO BUTTONS CONTAINER
+======================================== */
+
+.hero-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin-top: 38px;
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.9s ease 0.75s forwards;
+}
+
+/* ALL HERO BUTTONS */
+
+.hero-buttons a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  min-height: 52px;
+
+  padding: 15px 25px;
+
+  border-radius: 8px;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ========================================
+   VIEW MY WORK BUTTON
+======================================== */
+
+.primary-btn {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #0284c7
+    );
+
+  border:
+    1px solid rgba(96, 165, 250, 0.5);
+
+  box-shadow:
+    0 10px 30px rgba(37, 99, 235, 0.18);
+}
+
+.primary-btn:hover {
+  transform:
+    translateY(-4px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #0ea5e9
+    );
+
+  border-color: #7dd3fc;
+
+  box-shadow:
+    0 15px 45px rgba(37, 99, 235, 0.35),
+    0 0 25px rgba(56, 189, 248, 0.15);
+}
+
+/* PROJECT ARROW */
+
+.button-arrow {
+  transition:
+    transform 0.3s ease;
+}
+
+.primary-btn:hover .button-arrow {
+  transform:
+    translate(4px, -4px);
+}
+
+/* ========================================
+   LET'S TALK BUTTON
+======================================== */
+
+.secondary-btn {
+  color: #cbd5e1;
+
+  background:
+    rgba(15, 23, 42, 0.35);
+
+  border:
+    1px solid rgba(125, 211, 252, 0.18);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.secondary-btn:hover {
+  color: #ffffff;
+
+  transform:
+    translateY(-4px);
+
+  border-color: #38bdf8;
+
+  background:
+    rgba(14, 165, 233, 0.08);
+
+  box-shadow:
+    0 0 25px rgba(56, 189, 248, 0.1);
+}
+
+/* ========================================
+   DOWNLOAD RESUME BUTTON
+======================================== */
+
+.resume-btn {
+  position: relative;
+
+  color: #7dd3fc;
+
+  background:
+    rgba(14, 165, 233, 0.06);
+
+  border:
+    1px solid rgba(56, 189, 248, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  overflow: hidden;
+}
+
+/* MOVING SHINE EFFECT */
+
+.resume-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      transparent
+    );
+
+  transform:
+    skewX(-20deg);
+
+  transition:
+    left 0.6s ease;
+}
+
+.resume-btn:hover::before {
+  left: 140%;
+}
+
+.resume-btn:hover {
+  color: #ffffff;
+
+  transform:
+    translateY(-4px);
+
+  background:
+    rgba(14, 165, 233, 0.14);
+
+  border-color: #38bdf8;
+
+  box-shadow:
+    0 15px 40px rgba(37, 99, 235, 0.2),
+    0 0 25px rgba(56, 189, 248, 0.15);
+}
+
+/* DOWNLOAD ICON */
+
+.download-icon {
+  position: relative;
+
+  font-size: 1.1rem;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.resume-btn:hover .download-icon {
+  transform:
+    translateY(4px);
+}
+
+/* ========================================
+   TECH STACK
+======================================== */
+
+.hero-tech {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin-top: 55px;
+
+  opacity: 0;
+
+  animation:
+    fadeUp 0.9s ease 0.9s forwards;
+}
+
+.hero-tech span {
+  color: #64748b;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.hero-tech span:hover {
+  color: #38bdf8;
+
+  text-shadow:
+    0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+.hero-tech div {
+  width: 3px;
+  height: 3px;
+
+  background: #38bdf8;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 8px rgba(56, 189, 248, 0.8);
+}
+
+/* ========================================
+   SCROLL INDICATOR
+======================================== */
+
+.scroll-indicator {
+  position: absolute;
+
+  right: 5%;
+  bottom: 50px;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  color: #64748b;
+
+  text-decoration: none;
+}
+
+.scroll-indicator > span {
+  font-size: 0.65rem;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  position: relative;
+
+  width: 1px;
+  height: 70px;
+
+  background:
+    rgba(125, 211, 252, 0.15);
+
+  overflow: hidden;
+}
+
+.scroll-dot {
+  position: absolute;
+
+  top: -15px;
+  left: 0;
+
+  width: 1px;
+  height: 20px;
+
+  background: #38bdf8;
+
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.8);
+
+  animation:
+    scrollDown 2s ease-in-out infinite;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes roleChange {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px);
+
+    filter:
+      blur(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+    filter:
+      blur(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+
+    box-shadow:
+      0 0 10px rgba(56, 189, 248, 0.8);
+  }
+
+  50% {
+    opacity: 0.5;
+
+    box-shadow:
+      0 0 28px rgba(56, 189, 248, 1);
+  }
+}
+
+@keyframes glowMove {
+  from {
+    transform:
+      translate(0, 0);
+  }
+
+  to {
+    transform:
+      translate(-50px, 40px);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform:
+      translateY(0);
+
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(85px);
+
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .hero-name {
+    letter-spacing: -5px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .hero {
+    min-height: 100svh;
+
+    padding:
+      110px
+      5%
+      60px;
+  }
+
+  .hero-name {
+    font-size:
+      clamp(3.8rem, 19vw, 6rem);
+
+    letter-spacing: -4px;
+  }
+
+  .hero-role-container {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .animated-role {
+    font-size:
+      clamp(1.7rem, 8vw, 2.5rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  /* STACK ALL 3 BUTTONS */
+
+  .hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .hero-buttons a {
+    width: 100%;
+  }
+
+  .hero-tech {
+    margin-top: 40px;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 400px) {
+
+  .hero-name {
+    font-size: 3.6rem;
+
+    letter-spacing: -3px;
+  }
+
+  .hero-status {
+    font-size: 0.65rem;
+  }
+
+  .hero-intro {
+    font-size: 0.85rem;
+
+    letter-spacing: 3px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero *,
+  .hero *::before,
+  .hero *::after {
+    animation-duration:
+      0.01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+  }
+}

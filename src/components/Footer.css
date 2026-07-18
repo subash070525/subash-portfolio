@@ -1,0 +1,331 @@
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+  position: relative;
+
+  padding: 70px 8% 30px;
+
+  /* Keep NightSky visible */
+  background: transparent;
+
+  color: #ffffff;
+
+  border-top:
+    1px solid rgba(56, 189, 248, 0.12);
+
+  overflow: hidden;
+}
+
+/* SUBTLE BLUE GLOW */
+
+.footer::before {
+  content: "";
+
+  position: absolute;
+
+  width: 450px;
+  height: 250px;
+
+  bottom: -180px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background:
+    rgba(37, 99, 235, 0.12);
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding-bottom: 50px;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+
+.footer-logo {
+  color: #ffffff;
+
+  font-family: 'Space Grotesk', sans-serif;
+
+  font-size: 2rem;
+  font-weight: 700;
+
+  letter-spacing: -1px;
+
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.footer-logo span {
+  color: #38bdf8;
+
+  text-shadow:
+    0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.footer-logo:hover {
+  transform: translateY(-3px);
+
+  text-shadow:
+    0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+/* ========================================
+   BUILT BY TEXT
+======================================== */
+
+.footer-text {
+  color: #64748b;
+
+  font-size: 0.9rem;
+
+  text-align: center;
+}
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 25px;
+}
+
+.footer-links a {
+  position: relative;
+
+  color: #94a3b8;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* LINK UNDERLINE */
+
+.footer-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 1px;
+
+  background: #38bdf8;
+
+  box-shadow:
+    0 0 10px rgba(56, 189, 248, 0.8);
+
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #7dd3fc;
+
+  transform: translateY(-3px);
+
+  text-shadow:
+    0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   FOOTER BOTTOM
+======================================== */
+
+.footer-bottom {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-top: 30px;
+
+  border-top:
+    1px solid rgba(125, 211, 252, 0.1);
+}
+
+.footer-bottom p {
+  color: #475569;
+
+  font-size: 0.85rem;
+}
+
+/* ========================================
+   BACK TO TOP
+======================================== */
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #94a3b8;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.back-to-top span {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  color: #38bdf8;
+
+  background:
+    rgba(14, 165, 233, 0.08);
+
+  border:
+    1px solid rgba(56, 189, 248, 0.2);
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.back-to-top:hover {
+  color: #ffffff;
+
+  transform: translateY(-3px);
+}
+
+.back-to-top:hover span {
+  transform: translateY(-4px);
+
+  background:
+    rgba(14, 165, 233, 0.16);
+
+  box-shadow:
+    0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 850px) {
+
+  .footer-container {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .footer-text {
+    text-align: left;
+  }
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .footer {
+    padding:
+      60px
+      6%
+      30px;
+  }
+
+  .footer-container {
+    gap: 25px;
+
+    padding-bottom: 40px;
+  }
+
+  .footer-links {
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  .footer {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .footer-logo {
+    font-size: 1.7rem;
+  }
+
+  .footer-links {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 15px;
+  }
+}

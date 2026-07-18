@@ -1,0 +1,333 @@
+.about {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 8%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.18),
+      rgba(15, 23, 42, 0.25),
+      rgba(2, 6, 23, 0.18)
+    );
+
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* BLUE BACKGROUND GLOW */
+
+.about::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: 10%;
+  right: -280px;
+
+  background: rgba(37, 99, 235, 0.12);
+
+  border-radius: 50%;
+
+  filter: blur(110px);
+
+  pointer-events: none;
+
+  animation: aboutGlow 7s ease-in-out infinite alternate;
+}
+
+/* SECOND GLOW */
+
+.about::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  bottom: -150px;
+  left: -150px;
+
+  background: rgba(14, 165, 233, 0.08);
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+/* CONTAINER */
+
+.about-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+/* MAIN HEADING */
+
+.about-container > h2 {
+  margin-top: 10px;
+  margin-bottom: 60px;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  letter-spacing: -2px;
+}
+
+/* CONTENT LAYOUT */
+
+.about-content {
+  display: grid;
+
+  grid-template-columns: 1.2fr 1fr;
+
+  gap: 80px;
+
+  align-items: start;
+}
+
+/* ABOUT TEXT */
+
+.about-text h3 {
+  max-width: 650px;
+
+  margin-bottom: 30px;
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  line-height: 1.15;
+
+  letter-spacing: -2px;
+}
+
+.about-text h3 span {
+  color: #38bdf8;
+
+  text-shadow:
+    0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.about-text p {
+  max-width: 650px;
+
+  margin-bottom: 20px;
+
+  color: #94a3b8;
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+}
+
+/* DETAILS */
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+/* GLASS CARDS */
+
+.detail-card {
+  position: relative;
+
+  padding: 28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.55),
+      rgba(30, 41, 59, 0.2)
+    );
+
+  border:
+    1px solid rgba(125, 211, 252, 0.1);
+
+  border-radius: 14px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* BLUE SIDE LINE */
+
+.detail-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 3px;
+  height: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #38bdf8,
+      #2563eb
+    );
+
+  box-shadow:
+    0 0 15px rgba(56, 189, 248, 0.7);
+
+  transition: height 0.4s ease;
+}
+
+/* CARD GLOW */
+
+.detail-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: -70px;
+  right: -70px;
+
+  background: rgba(56, 189, 248, 0.08);
+
+  border-radius: 50%;
+
+  filter: blur(30px);
+
+  opacity: 0;
+
+  transition: opacity 0.4s ease;
+
+  pointer-events: none;
+}
+
+/* CARD HOVER */
+
+.detail-card:hover {
+  transform: translateX(12px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 58, 138, 0.16),
+      rgba(14, 165, 233, 0.06)
+    );
+
+  border-color:
+    rgba(56, 189, 248, 0.35);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(56, 189, 248, 0.08);
+}
+
+.detail-card:hover::before {
+  height: 100%;
+}
+
+.detail-card:hover::after {
+  opacity: 1;
+}
+
+/* CARD TEXT */
+
+.detail-card h4 {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 8px;
+
+  color: #ffffff;
+
+  transition: color 0.3s ease;
+}
+
+.detail-card:hover h4 {
+  color: #7dd3fc;
+}
+
+.detail-card p {
+  position: relative;
+  z-index: 2;
+
+  color: #94a3b8;
+
+  line-height: 1.7;
+}
+
+/* ANIMATION */
+
+@keyframes aboutGlow {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-80px, 80px);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+  .about {
+    padding: 100px 6%;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .detail-card:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  .about {
+    padding: 90px 5%;
+  }
+
+  .about-container > h2 {
+    margin-bottom: 45px;
+  }
+
+  .detail-card {
+    padding: 22px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .about::before {
+    animation: none;
+  }
+
+  .detail-card {
+    transition: none;
+  }
+}
