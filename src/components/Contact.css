@@ -5,38 +5,24 @@
 .contact {
   position: relative;
   min-height: 100vh;
-
   padding: 120px 8%;
-
-  /* Transparent so NightSky stays visible */
   background: transparent;
-
   color: #ffffff;
-
   overflow: hidden;
 }
 
-/* ========================================
-   SUBTLE BLUE GLOW
-======================================== */
+/* BLUE BACKGROUND GLOW */
 
 .contact::before {
   content: "";
-
   position: absolute;
-
   width: 450px;
   height: 450px;
-
   top: 15%;
   right: -250px;
-
   background: rgba(37, 99, 235, 0.08);
-
   border-radius: 50%;
-
   filter: blur(130px);
-
   pointer-events: none;
 }
 
@@ -47,9 +33,7 @@
 .contact-container {
   position: relative;
   z-index: 2;
-
   max-width: 1200px;
-
   margin: 0 auto;
 }
 
@@ -59,27 +43,27 @@
 
 .contact-heading {
   max-width: 750px;
-
   margin-bottom: 65px;
 }
 
 .contact-heading h2 {
   margin-top: 10px;
-
   font-size: clamp(2.5rem, 5vw, 4rem);
-
+  line-height: 1.1;
   letter-spacing: -2px;
+}
+
+.contact-heading h2 span {
+  color: #38bdf8;
+  text-shadow:
+    0 0 25px rgba(56, 189, 248, 0.2);
 }
 
 .contact-intro {
   max-width: 650px;
-
   margin-top: 20px;
-
   color: #94a3b8;
-
   font-size: 1rem;
-
   line-height: 1.8;
 }
 
@@ -89,56 +73,48 @@
 
 .contact-content {
   display: grid;
-
   grid-template-columns: 0.8fr 1.2fr;
-
   gap: 60px;
-
   align-items: start;
 }
 
 /* ========================================
-   CONTACT INFORMATION
+   LEFT CONTACT INFORMATION
 ======================================== */
 
 .contact-info {
-  display: flex;
-  flex-direction: column;
-
-  gap: 18px;
-}
-
-/* ========================================
-   CONTACT INFO CARD
-======================================== */
-
-.contact-card {
   position: relative;
 
-  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-  background: rgba(5, 10, 25, 0.7);
+  padding: 35px;
+
+  background: rgba(5, 10, 25, 0.72);
 
   border:
     1px solid rgba(125, 211, 252, 0.12);
 
-  border-radius: 14px;
+  border-radius: 20px;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.3);
 
   overflow: hidden;
 
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
-    background 0.35s ease,
     box-shadow 0.35s ease;
 }
 
-/* BLUE SIDE LINE */
+/* BLUE SIDE GLOW */
 
-.contact-card::before {
+.contact-info::before {
   content: "";
 
   position: absolute;
@@ -159,50 +135,59 @@
   box-shadow:
     0 0 15px rgba(56, 189, 248, 0.8);
 
-  transition: height 0.4s ease;
+  transition:
+    height 0.4s ease;
 }
 
-.contact-card:hover {
-  transform: translateX(8px);
-
-  background: rgba(15, 23, 42, 0.8);
+.contact-info:hover {
+  transform: translateY(-6px);
 
   border-color:
-    rgba(56, 189, 248, 0.4);
+    rgba(56, 189, 248, 0.35);
 
   box-shadow:
-    0 15px 45px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(56, 189, 248, 0.08);
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(56, 189, 248, 0.08);
 }
 
-.contact-card:hover::before {
+.contact-info:hover::before {
   height: 100%;
 }
 
 /* ========================================
-   CONTACT CARD TEXT
+   CONTACT LABEL
 ======================================== */
 
-.contact-card span {
-  display: block;
-
-  margin-bottom: 8px;
+.contact-small-title {
+  margin-bottom: 18px;
 
   color: #38bdf8;
 
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
 
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 
   text-transform: uppercase;
 }
 
-.contact-card a,
-.contact-card p {
-  color: #cbd5e1;
+/* ========================================
+   EMAIL
+======================================== */
 
-  font-size: 0.95rem;
+.contact-email {
+  position: relative;
+
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  color: #ffffff;
+
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 600;
+
+  text-decoration: none;
 
   word-break: break-word;
 
@@ -211,11 +196,83 @@
     text-shadow 0.3s ease;
 }
 
-.contact-card a:hover {
-  color: #7dd3fc;
+.contact-email:hover {
+  color: #38bdf8;
 
   text-shadow:
-    0 0 12px rgba(56, 189, 248, 0.35);
+    0 0 20px rgba(56, 189, 248, 0.35);
+}
+
+/* ========================================
+   CONTACT DESCRIPTION
+======================================== */
+
+.contact-note {
+  max-width: 430px;
+
+  margin-bottom: 35px;
+
+  color: #94a3b8;
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-links a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 18px;
+
+  color: #cbd5e1;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  background:
+    rgba(15, 23, 42, 0.5);
+
+  border:
+    1px solid rgba(125, 211, 252, 0.15);
+
+  border-radius: 8px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+
+  transform: translateY(-4px);
+
+  background:
+    rgba(14, 165, 233, 0.1);
+
+  border-color: #38bdf8;
+
+  box-shadow:
+    0 10px 30px rgba(37, 99, 235, 0.15),
+    0 0 20px rgba(56, 189, 248, 0.1);
 }
 
 /* ========================================
@@ -227,7 +284,8 @@
 
   padding: 40px;
 
-  background: rgba(5, 10, 25, 0.72);
+  background:
+    rgba(5, 10, 25, 0.72);
 
   border:
     1px solid rgba(125, 211, 252, 0.12);
@@ -243,7 +301,7 @@
   overflow: hidden;
 }
 
-/* FORM TOP GLOW LINE */
+/* ANIMATED TOP LIGHT */
 
 .contact-form::before {
   content: "";
@@ -309,9 +367,11 @@
 
   color: #ffffff;
 
+  font-family: inherit;
   font-size: 0.95rem;
 
-  background: rgba(2, 6, 23, 0.75);
+  background:
+    rgba(2, 6, 23, 0.75);
 
   border:
     1px solid rgba(148, 163, 184, 0.15);
@@ -319,8 +379,6 @@
   border-radius: 9px;
 
   outline: none;
-
-  resize: none;
 
   transition:
     border-color 0.3s ease,
@@ -330,6 +388,7 @@
 
 .form-group textarea {
   min-height: 150px;
+  resize: vertical;
 }
 
 /* PLACEHOLDER */
@@ -343,7 +402,8 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  background: rgba(2, 6, 23, 0.9);
+  background:
+    rgba(2, 6, 23, 0.9);
 
   border-color: #38bdf8;
 
@@ -364,12 +424,15 @@
   align-items: center;
   justify-content: center;
 
+  gap: 12px;
+
   min-width: 170px;
 
   padding: 15px 28px;
 
   color: #ffffff;
 
+  font-family: inherit;
   font-size: 0.9rem;
   font-weight: 600;
 
@@ -409,8 +472,6 @@
   transform: translateY(-1px);
 }
 
-/* DISABLED BUTTON */
-
 .submit-btn:disabled {
   opacity: 0.6;
 
@@ -439,7 +500,7 @@
     statusAppear 0.4s ease;
 }
 
-/* SUCCESS */
+/* SUCCESS MESSAGE */
 
 .form-success {
   color: #86efac;
@@ -451,7 +512,7 @@
     1px solid rgba(34, 197, 94, 0.25);
 }
 
-/* ERROR */
+/* ERROR MESSAGE */
 
 .form-error {
   color: #fca5a5;
@@ -468,7 +529,6 @@
 ======================================== */
 
 @keyframes contactLight {
-
   0% {
     left: -100%;
   }
@@ -480,7 +540,6 @@
 }
 
 @keyframes statusAppear {
-
   from {
     opacity: 0;
 
@@ -523,23 +582,49 @@
 
   .contact {
     padding:
-      90px
-      5%;
+      100px
+      5%
+      70px;
   }
 
   .contact-heading {
     margin-bottom: 45px;
   }
 
+  .contact-heading h2 {
+    font-size:
+      clamp(2.3rem, 12vw, 3.2rem);
+  }
+
+  .contact-info {
+    padding:
+      28px
+      22px;
+  }
+
   .contact-form {
-    padding: 25px 20px;
+    padding:
+      28px
+      20px;
+  }
+
+  .contact-email {
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    width: 100%;
+  }
+
+  .social-links a {
+    flex: 1;
   }
 
   .submit-btn {
     width: 100%;
   }
 
-  .contact-card:hover {
+  .contact-info:hover {
     transform:
       translateY(-4px);
   }
@@ -555,7 +640,8 @@
     animation: none;
   }
 
-  .contact-card,
+  .contact-info,
+  .social-links a,
   .submit-btn {
     transition: none;
   }
